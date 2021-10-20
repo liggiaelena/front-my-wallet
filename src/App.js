@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/reset.css"
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import LoginPage from './components/LoginPage';
+import SingUpPage from './components/SingUpPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+export default function App(){
+  return(
+    <BrowserRouter>
+    <Switch>
+      <Route path="/" exact>
+        <LoginPage />
+      </Route>
+      <Route path="/sing-up" exact>
+        <SingUpPage />
+      </Route>
+    </Switch>
+  </BrowserRouter>
   );
 }
-
-export default App;
