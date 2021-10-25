@@ -5,7 +5,7 @@ import ChangeBalanceButton from './ChangeBalanceButton';
 import UserContext from '../../contexts/UserContext';
 import { useContext } from 'react';
 import { getLogout, getTransactions } from '../../service';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useEffect , useState} from 'react';
 
 export default function Balance(){

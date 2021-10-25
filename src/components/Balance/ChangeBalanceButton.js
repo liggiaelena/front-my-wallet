@@ -1,16 +1,11 @@
 import { ContainerNewEntry, BoxNewEntry } from '../../styles/StyleBalance'
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
-import { postTransaction } from '../../service';
 import { useHistory } from 'react-router';
 
 export default function ChangeBalanceButton(){
    const history = useHistory();
 
     function changePage(type){
-        // body ={
-        //onClick={()=>postNewEntry("positve")
-        // }
-        // const promise = postTransaction()
         history.push(`/balance-update/${type}`);
     }
 
