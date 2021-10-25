@@ -58,7 +58,7 @@ export default function LoginPage(){
                     onChange ={(e)=> setPassword(e.target.value)}
                     disabled={loading}
                 />
-                    <button onClick={loading? "": logIntoAccount}>
+                <button onClick={loading? "": logIntoAccount}>
                     {loading?  <Loader
                                     type="ThreeDots" 
                                     color="#ffffff" 

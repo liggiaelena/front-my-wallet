@@ -13,8 +13,9 @@ export default function Expenses({transaction}){
     if(type === 'negative'){
         color= true;
     }
-    const day = new Date().getDate(date);
-    const month = new Date().getMonth(date) +1;
+    const now = new Date(date)
+    const day = now.getDate();
+    const month = now.getMonth() +1;
     const valueCorrect = parseFloat(value).toFixed(2).replace('.', ',')
 
     return(
