@@ -65,6 +65,10 @@ const FormsContainer = styled.div`
         color: #ffffff;
         font-size: 15px;
         margin-top: 40px;
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
     }
 `;
 

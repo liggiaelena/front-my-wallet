@@ -1,7 +1,9 @@
 import { Container, Title, FormsContainer, AlertMessage } from '../styles/StyleLogin';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useState } from 'react';
 import Loader from 'react-loader-spinner';
+import { postSingUp } from '../service';
+
 
 
 export default function SingUpPage(){
@@ -11,6 +13,7 @@ export default function SingUpPage(){
     const [confirmPassword, setConfirmPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [erro, setErro] = useState(false);
+    const history = useHistory();
 
     function checkRegistration(){
         setLoading(true);
@@ -19,8 +22,35 @@ export default function SingUpPage(){
             setLoading(false)
             return
         }
+        const body = {
+            name: username,
+            email,
+            password,
+        };
 
-        //axios blbl
+        postSingUp(body)
+            .then(()=>{
+                setLoading(false);
+                alert("Cadastro feito com sucesso");
+                history.push('/');
+            })
+            .catch((error)=>{
+                setLoading(false);
+                setErro(false);
+
+                if (error.response.status === 409){
+                    alert ('O e-mail inserido já está cadastrado.');
+                }
+                else if (error.response.status === 500){
+                    alert ('Erro do servidor');
+                }
+                else if (error.response.status === 400){
+                    alert ('Dados inválidos');
+                }
+                else{
+                    alert ('Erro ao realizar cadastro');
+                }
+            });
     }
 
     return(
@@ -52,7 +82,7 @@ export default function SingUpPage(){
                    disabled={loading}
             />
             <AlertMessage>
-                {erro? "Erro: por facor revise os dados inseridos":""}
+                {erro? "Erro: por facor insira senhas iguais":""}
             </AlertMessage>
             <button onClick={loading? "":checkRegistration}>
                 {loading?  <Loader

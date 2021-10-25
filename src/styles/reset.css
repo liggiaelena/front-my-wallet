@@ -60,3 +60,6 @@ body{
 h1{
     font-family: 'Saira Stencil One', cursive;
 }
+*{
+	box-sizing: border-box;
+}
