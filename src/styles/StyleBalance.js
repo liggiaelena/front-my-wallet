@@ -94,7 +94,7 @@ const BoxNewEntry =styled.div`
     background-color: #A328D6;
     border-radius: 5px;
     width: 48%;
-    height: 114px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -103,6 +103,7 @@ const BoxNewEntry =styled.div`
         color: #ffffff;
         font-size: 17px;
         font-weight: 700;
+        margin-top: 30px;
     }
 `;
 
